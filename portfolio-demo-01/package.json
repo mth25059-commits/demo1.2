@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Dark portfolio landing page — React + Vite + Tailwind + GSAP + Framer Motion + hls.js",
+  "description": "Dark portfolio landing page",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
