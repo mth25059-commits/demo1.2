@@ -38,4 +38,7 @@ export default {
         "role-fade-in": "role-fade-in 0.4s ease-out",
         "gradient-shift": "gradient-shift 6s ease infinite",
       },
-    }
+    },
+  },
+  plugins: [tailwindcssAnimate],
+};
