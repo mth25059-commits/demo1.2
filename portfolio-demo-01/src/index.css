@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 0 0% 4%;
+    --surface: 0 0% 8%;
+    --text: 0 0% 96%;
+    --muted: 0 0% 53%;
+    --stroke: 0 0% 12%;
+    --accent: 0 0% 96%;
+  }
+
+  * {
+    @apply border-stroke;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-bg text-text-primary font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(137, 170, 204, 0.3);
+    color: hsl(var(--text));
+  }
+
+  /* Minimal custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--bg));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--stroke));
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(0 0% 20%);
+  }
+}
+
+@layer components {
+  /* Accent gradient — used on logo ring, hover borders, progress bars */
+  .accent-gradient {
+    background: linear-gradient(90deg, #89aacc 0%, #4e85bf 100%);
+  }
+
+  .accent-gradient-animated {
+    background: linear-gradient(90deg, #89aacc 0%, #4e85bf 50%, #89aacc 100%);
+    background-size: 200% 200%;
+    @apply animate-gradient-shift;
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, #89aacc 0%, #4e85bf 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Custom keyframes (mirrored in tailwind.config for utility use) */
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes role-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
